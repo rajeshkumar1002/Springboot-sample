@@ -1,0 +1,25 @@
+type Query{
+    customers: [Customer]!
+    customerById(id: ID): Customer
+    containsName(name: String): [Customer]
+    filterCustomer(filter:AgeFilter): [Customer]
+}
+
+type CustomerOrder{
+    id:ID
+    description: String
+}
+type Customer{
+    id: ID
+    name: String
+    age: Int
+    city: String
+    address: Address
+    account: Account
+    orders: [CustomerOrder]!
+}
+
+input AgeFilter{
+    minAge: Int
+    maxAge: Int
+}
